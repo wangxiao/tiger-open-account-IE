@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@import "compass";
+
+/* 公共基础 */
+@import "common/base";
+@import "common/icons";
+@import "common/header";
+@import "common/footer";
+
+@import "open-account/open-step";
+@import "open-account/open-index";

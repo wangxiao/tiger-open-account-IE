@@ -1,0 +1,100 @@
+/* 各种标准色 */
+$standard-green: #69ba71;
+$standard-red: #a94442;
+$standard-black: #333333;
+$standard-blue: #00a0ff;
+$standard-gray: #e1e1e1;
+$standard-orange: #ef8333;
+$page-width: 960px;
+
+/* 其他公用颜色 */
+/* 去掉 Mac 下浏览器惯性滚动 */
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-family: arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti;
+}
+p {
+    display: inline-block;
+    margin: 0px;
+}
+ul {
+    padding: 0px;
+    li {
+        list-style: none;
+    }
+}
+input[type=text], input[type=number]{
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    padding: 0px 10px 0px 10px;
+    display: inline-block;
+    border-radius: 0px;
+    &.placeholder {
+        color: #888;
+    }
+}
+select {
+    display: inline-block;
+    width: auto;
+    padding: 2px;
+}
+.has-error {
+    input.error, input.error:focus {
+        border-color: $standard-red;
+        color: $standard-red;
+    }
+}
+.error {
+    color: $standard-red;
+}
+.right {
+    color: $standard-green;
+}
+.hide {
+    display: block!important;
+    @include opacity(0);
+    height: 0px;
+    overflow: hidden;
+}
+i, span{
+    &.hide {
+        display: inline-block!important;
+        @include opacity(0);       
+    }
+}
+.show {
+    @include opacity(1);
+}
+i, span{
+    &.show {
+        display: inline-block!important;
+        @include opacity(1);    
+    }
+}
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+/* 按钮基本 */
+.btn {
+    vertical-align: top;
+    display: inline-block;
+    border-radius: 0px;
+    color: #fff;
+    background-color: $standard-green;
+    cursor: pointer;
+}
+.btn:hover {
+    color: #fff;
+    @include transition(opacity, 0.4s);
+    @include opacity(0.8);
+}
+.btn:active {
+    @include opacity(1);
+}

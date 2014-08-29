@@ -1,0 +1,38 @@
+$footer-height: 48px;
+.wd-footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: $footer-height;
+    z-index: 201;
+    color: #fff;
+    a {
+        color: #fff;
+    }
+    .content {
+        width: $page-width;
+        margin: 0px auto;
+    }
+    .title {
+        vertical-align: top;
+        margin-top: 15px;
+        margin-left: 5px;
+        font-size: 18px;
+    }
+    .service {
+        float: right;
+        margin-top: 16px;
+        margin-right: 20px;
+    }
+    .tips {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 18px;
+        margin-left: 90px;
+        .tip {
+            margin-right: 20px;
+        }
+    }
+    background-color: #465258;
+}

@@ -1,0 +1,26 @@
+$header-height: 69px;
+.wd-header {
+    background-color: #fff;
+    height: $header-height;
+    padding: 10px 0px;
+    overflow: hidden;
+    .content {
+        width: $page-width;
+        height: 100%;
+        margin: 0px auto;
+    }
+    h1 {
+        display: inline-block;
+        font-size: 24px;
+        vertical-align: top;
+        margin-top: 12px;
+        margin-left: 10px;
+    }
+    .tip {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 18px;
+        float: right;
+        margin-right: 20px;
+    }
+}

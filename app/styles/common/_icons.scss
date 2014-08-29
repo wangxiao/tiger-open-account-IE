@@ -1,0 +1,15 @@
+$icons: sprite-map("../images/icons/*.png");
+
+@each $i in sprite_names($icons){
+    .icon-#{$i}{
+        background: $icons;
+        display: inline-block; // or block
+        background-position: sprite-position($icons, $i);
+        background-repeat: no-repeat;
+        @include sprite-dimensions($icons, $i);
+        height: image-height(sprite-file($icons, $i));
+        width: image-width(sprite-file($icons, $i));
+        display: inline-block;
+        vertical-align: text-bottom;
+    }
+}
