@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Reader</title>
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="no"/>
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+<body>
+    <div class="wd-header">
+        <div class="content">
+            <i class="icon-logo"></i>
+            <h1>国京（香港）证券与期货</h1>
+            <p class="tip">客服热线：400-150-0852</p>
+        </div>
+    </div>
+
+    <div class="open-step">
+        <div class="content">
+            <div class="top-title">
+                <p>国京证券开户申请</p>
+            </div>
+            
+            <div class="progress-tip">
+                <p>完成</p>
+                <p class="num">90%</p>
+            </div>
+
+            <div class="progress-toolbar">
+                <div class="item">
+                    1、填写申请表
+                </div>
+                <div class="item current">
+                    2、开户见证
+                </div>
+                <div class="item">
+                    3、申请成功
+                </div>
+            </div>
+
+            <!-- application-form -->
+            <div id="application-form" class="application-form">
+                <div class="title">基本信息</div>
+                <ul class="base-form form">
+                    <li class="item">
+                        <p class="item-title">开户类型</p>
+                        <input id="uiIsSecurity" type="checkbox" checked="checked">
+                        <p>证券账户</p>
+                        <i class="icon-info tip" title="环球证券保证金账户可投资港股、美股等股票。"></i>
+                        <input id="uiIsFutures" type="checkbox">
+                        <p>期货账户</p>
+                        <i class="icon-info tip" title="环球期货账户可投资外盘贵金属、能源、农产品、指数、外汇等全球期货市场"></i>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">中文姓名</p>
+                        <input id="nameCn" type="text" class="form-control item-input">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <p>请填写中文姓名</p>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">手机号码</p>
+                        <input id="phone" type="text" class="mobile form-control item-input">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <p>请填写正确的手机号码</p>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">拼音姓名</p>
+                        姓：<input id="nameEnXing" type="text" class="form-control item-input nameEn">
+                        名：<input id="nameEnMing" type="text" class="form-control item-input nameEn">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <p>请填写拼音姓名</p>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">电子邮件</p>
+                        <input id="email" type="text" class="form-control item-input">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <p>请填写正确的电子邮件</p>
+                        </span>
+                    </li>
+                </ul>
+                <div class="title">身份信息</div>
+                <ul class="form">
+                    <li class="item">
+                        <p class="item-title">国家/地区</p>
+                        <select id="country">
+                            <option value="0">中国</option>
+                            <option value="1">中国香港</option>
+                            <option value="2">台湾地区</option>
+                            <option value="3">中国澳门</option>
+                        </select>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">证件类型</p>
+                        <select id="id-kind">
+                            <option value="0">中国居民身份证</option>
+                            <option value="1">中国护照/港澳通行证</option>
+                            <option value="2">中国香港居民身份证</option>
+                            <option value="3">其他国家/地区护照</option>
+                        </select>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">证件号码</p>
+                        <input id="id-value" type="text" class="form-control item-input">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <p>请输入正确的证件号码</p>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">
+                            签发机构
+                        </p>
+                        <input id="issueDepart" type="text" class="form-control item-input">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <i class="glyphicon glyphicon-remove"></i>
+                            <p>请输入签发机构（证件背面）</p>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">
+                            性别
+                        </p>
+                        <div class="sex-chose btn-group">
+                            <input id="uiMale" name="sexy" type="radio" checked="checked">男
+                            <input name="sexy" type="radio">女
+                        </div>
+                    </li>
+                    <li class="item date-select">
+                        <p class="item-title">出生日期</p>
+                        <select id="years" class="year form-control">
+                        </select>年
+                        <select id="months" class="form-control">
+                        </select>月
+                        <select id="days" class="form-control">
+                        </select>日
+                    </li>
+                </ul>
+                <div class="title">附加信息</div>
+                <ul class="form">
+                    <li class="item">
+                        <p class="item-title">就业状况</p>
+                        <select id="employment" class="form-control">
+                            <option value="0">在职</option>
+                            <option value="1">私营</option>
+                            <option value="2">退休</option>
+                            <option value="3">其他</option>
+                        </select>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">常住地址</p>
+                        <input id="address" type="text" class="form-control item-input address">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <i class="glyphicon glyphicon-remove"></i>
+                            <p>请填写常住地址</p>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <p class="item-title">通讯地址</p>
+                        <input id="sendAddress" type="text" class="form-control item-input address">
+                        <i class="right glyphicon glyphicon-ok"></i>
+                        <span class="error">
+                            <i class="glyphicon glyphicon-remove"></i>
+                            <p>请填写通讯地址</p>
+                        </span>
+                    </li>
+                </ul>
+                <div class="protocol">
+                    <input type="checkbox" checked="checked">
+                    <p>本人已经阅读且理解认同账户的
+                        <a href="http://register.guoking.com.hk:8080/WebBusiness/gk_open/pdf/stock_agrement.pdf">《证券客户协议书》</a>
+                        <a href="http://register.guoking.com.hk:8080/WebBusiness/gk_open/pdf/futures_agrement.pdf">《期货客户协议书》</a>
+                        <a href="http://register.guoking.com.hk:8080/WebBusiness/gk_open/pdf/futures_risk.pdf">《风险披露声明》</a> 和
+                        <a href="http://register.guoking.com.hk:8080/WebBusiness/gk_open/pdf/secret.pdf">《私隐政策》</a>
+                    </p>
+                </div>
+                <div id="application-form-btn" class="submit-btn btn">确认，进入下一步</div>
+            </div>
+            <!-- application-form end -->
+
+            <!-- witness -->
+            <div id="witness-form" class="witness-form">
+                <p>恭喜您的《开户申请》提交成功，我们的客户经理会主动与您取得联系！</p>
+                <br>
+                <p>或者选择立即联系 QQ 客服：</p>
+                <div class="photo">
+                    <i class="icon-witness-photo"></i>
+                    <br>
+                </div>
+                <a class="btn" target="_blank" href="tencent://message/?uin=2748698839">QQ 立即联系</a>
+            </div>
+            <!-- witness end -->
+
+            <!-- success -->
+            <!-- 
+            <div class="success" 
+                ng-class="{'hide': (step !== 4),'show-slow': (step === 4)}">
+                <div class="title">
+                    <p>您的交易账户已开通！请记录交易账号：</p>
+                    <p class="tip">888888</p>
+                </div>
+                <div class="ad">
+                    <div class="block">
+                        <i class="icon-download"></i>
+                        <p class="title">下载交易软件</p>
+                        <p class="des">移动端交易软件</p>
+                    </div>
+                    <div class="block">
+                        <i class="icon-rule"></i>
+                        <p class="title">了解规则</p>
+                        <p class="des">查看交易规则及交易费用说明</p>
+                    </div>
+                    <div class="block">
+                        <i class="icon-recharge"></i>
+                        <p class="title">入金开始交易</p>
+                        <p class="des">银联直接入金，即时到帐</p>
+                    </div>
+                </div>
+            </div>
+             -->
+            <!-- success end -->
+
+        </div>
+    </div>
+
+    <div class="wd-footer">
+        <div class="content">
+            <i class="icon-logo"></i>
+            <p class="title">国京（香港）证券与期货</p>
+            <div class="tips">
+                <a class="tip" href="">关于我们</a>
+                <a class="tip" href="">证券期货牌照</a>
+                <a class="tip" href="">监管机构</a>
+            </div>
+            <p class="service">客服热线：400-150-0852</p>
+        </div>
+    </div>
+
+    <!-- build:js scripts/main.js -->
+    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>
