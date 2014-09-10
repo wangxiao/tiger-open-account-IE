@@ -10,6 +10,20 @@ define([
         return reg.test(str);
     }
 
+    function getBrokerId() {
+        var absUrl = location.href;
+        var brokerId = '';
+        if (/broker_id/.test(absUrl)) {
+            brokerId = absUrl.match('broker_id=(.*)')[1];
+            window.localStorage.setItem('brokerId', brokerId);
+        } else {
+            brokerId = window.localStorage.getItem('brokerId');
+        }
+        return brokerId;
+    }
+
+    getBrokerId();
+    
     $('#index-btn').on('click', function() {
         var name = $('#index-nameCn').val();
         var mobile = $('#index-mobile').val();
@@ -164,10 +178,16 @@ define([
     }
 
     for (i = 1, l = 12; i <= l ; i++ ) {
+        if (i < 10) {
+            i = '0' + i;
+        }
         $('#months').append('<option value="'+ i +'">'+ i +'</option>');
     }
 
     for (i = 1, l = 31; i <= l ; i++ ) {
+        if (i < 10) {
+            i = '0' + i;
+        }
         $('#days').append('<option value="'+i+'">'+i+'</option>');
     }
 
@@ -181,7 +201,7 @@ define([
             checkSendAddress()) {
             var obj = {
                 nameCn: $('#nameCn').val(),
-                nameEn: $('#nameEnXing').val() + ' ' + $('#nameEnMing').val(),
+                nameEn: String($('#nameEnXing').val() + ' ' + $('#nameEnMing').val()).toUpperCase(),
                 mobile: $('#phone').val(),
                 email: $('#email').val(),
                 // 0 只开证券账户，1 只开期货账户， 2 两个都开。
@@ -200,7 +220,8 @@ define([
                 // 常住地址
                 address: $('#address').val(),
                 // 通讯地址
-                sendAddress: $('#sendAddress').val()
+                sendAddress: $('#sendAddress').val(),
+                brokerId: getBrokerId()
             };
             if ($('#uiIsSecurity').prop('checked') && $('#uiIsFutures').prop('checked')) {
                 obj.accountType = 2;
