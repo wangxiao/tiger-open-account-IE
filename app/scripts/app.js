@@ -23,7 +23,19 @@ define([
     }
 
     getBrokerId();
-    
+
+    function getSourceCode() {
+        var absUrl = location.href;
+        var sourceCode = '';
+        if (/source_code/.test(absUrl)) {
+            sourceCode = absUrl.match('source_code=(.*)')[1];
+            window.localStorage.setItem('sourceCode', sourceCode);
+        } else {
+            sourceCode = window.localStorage.getItem('sourceCode');
+        }
+        return sourceCode;
+    }
+
     $('#index-btn').on('click', function() {
         var name = $('#index-nameCn').val();
         var mobile = $('#index-mobile').val();
@@ -221,7 +233,8 @@ define([
                 address: $('#address').val(),
                 // 通讯地址
                 sendAddress: $('#sendAddress').val(),
-                brokerId: getBrokerId()
+                brokerId: getBrokerId(),
+                sourceCode: getSourceCode()
             };
             if ($('#uiIsSecurity').prop('checked') && $('#uiIsFutures').prop('checked')) {
                 obj.accountType = 2;
@@ -238,7 +251,13 @@ define([
             $('#application-form').hide();
             $('#witness-form').show();
             $(window).scrollTop(0);
-            $.post('http://register.guoking.com.hk:18080/account/register_detailed', obj);
+            $.post('/account/register_detailed', obj, function(data) {
+                if (data.code !== 0) {
+                    alert('开户失败，请重试！');
+                    $('#application-form').show();
+                    $('#witness-form').hide();
+                }
+            });
         }
     });
 
