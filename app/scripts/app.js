@@ -14,10 +14,19 @@ define([
         var absUrl = location.href;
         var brokerId = '';
         if (/broker_id/.test(absUrl)) {
-            brokerId = absUrl.match('broker_id=(.*)')[1];
-            window.localStorage.setItem('brokerId', brokerId);
+            var result = absUrl.match('broker_id=(.*)');
+            if (result.length >= 2) {
+                brokerId = result[1];
+                window.localStorage.setItem('brokerId', brokerId);
+            }
         } else {
             brokerId = window.localStorage.getItem('brokerId');
+        }
+        if (brokerId) {
+            $('#brokerId').val(brokerId);
+        }
+        if (brokerId) {
+            brokerId = $('#brokerId').val();
         }
         return brokerId;
     }
@@ -105,12 +114,13 @@ define([
     // }
 
     function checkPhone() {
-        var val = $('#phone').val();
+        var ele = $('#phone');
+        var val = ele.val();
         if (!val || /\D/g.test(val)) {
-            $(this).siblings('.error').addClass('show');
+            ele.siblings('.error').addClass('show');
             return false;
         } else {
-            $(this).siblings('.error').removeClass('show');
+            ele.siblings('.error').removeClass('show');
             return true;
         }
     }
